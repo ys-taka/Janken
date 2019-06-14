@@ -22,13 +22,41 @@ public class Player
 	//プレイヤークラスの操作*/
 	//------------------------
 	/**
+	*プレイヤーのコンストラクタ
+	*
+	*@param name 名前
+	*/
+	public Player(String name)
+	{
+		this.name = name;
+	}
+	
+	/**
 	*ジャンケンの手を出す
 	*
 	*@return ジャンケンの手
 	*/
 	public int showHand()
 	{
-		//①実際の処理
+		//プレイヤーの手
+		int hand = 0;
+		
+		//0.0以上3.0未満の少数として乱数を得る
+		double randomNum = Math.random() * 3;
+		if (randomNum < 1){
+			//randomNumが0.0以上1.0未満の場合、グー
+			hand = STONE;
+		}
+		else if (randomNum < 2){
+			//radomNumが1.0以上2.0未満の場合、チョキ
+			hand = SCISSORS;
+		}
+		else if (randomNum < 3){
+			//randomNumが2.0以上3.0未満の場合、パー
+			hand = PAPER;
+		}
+		//決定した手を戻り値として返す
+		return hand;
 	}
 	
 	/**
@@ -38,7 +66,10 @@ public class Player
 	*/
 	public void notifyResult(boolean result)
 	{
-		//②実際の処理
+		if (true == result){
+			//勝った場合は勝ち数を加算する
+			winCount_ += 1;
+		}
 	}
 	
 	/**
@@ -48,7 +79,16 @@ public class Player
 	*/
 	public int getWinCount()
 	{
-		//③実際の処理
+		return winCount_;
+	}
+	
+	/**
+	*自分の名前を答える
+	*
+	*@return 名前
+	*/
+	public String getName()
+	{
+		return name_;
 	}
 }
-	
