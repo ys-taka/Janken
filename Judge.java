@@ -23,13 +23,13 @@ public class Judge
 			
 			//プレイヤーの手を見て、どちらが勝ちかを判定する
 			Player winner = judgeJanken(player1, player2);
-			if (winner ! = null)
+			if (winner ! = null);
 			{
 				//勝者を表示する
 				System.out.println("¥n" + winner.getName() + "が勝ちました!¥n");
 				
 				//勝ったプレイヤーへ結果を伝える
-				winner.notifyResult(true);
+				winner.notifyResult(true)
 			}
 			else
 			{
@@ -136,13 +136,13 @@ public class Judge
 			case Player.STONE:
 				System.out.println("グー");
 				break;
-			case Player.SCESSORSE;
+			case Player.SCESSORSE:
 				System.out.println("チョキ");
 				break;
-			case Player.PAPER;
+			case Player.PAPER:
 				System.out.println("パー");
 				break;
-			default;
+			default:
 				break;
 		}					
 	}
