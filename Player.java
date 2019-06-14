@@ -28,7 +28,7 @@ public class Player
 	*/
 	public Player(String name)
 	{
-		this.name = name;
+		this.name_ = name;
 	}
 	
 	/**

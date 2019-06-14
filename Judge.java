@@ -13,7 +13,7 @@ public class Judge
 	public void startJanken(Player player1, Player player2)
 	{
 		//ジャンケンの開始を宣言する
-		System.out.println("【ジャンケン開始】¥n");
+		System.out.println("【ジャンケン開始】");
 		
 		//ジャンケンを3回行う
 		for (int cnt = 0; cnt < 3 ; cnt ++)
@@ -23,38 +23,38 @@ public class Judge
 			
 			//プレイヤーの手を見て、どちらが勝ちかを判定する
 			Player winner = judgeJanken(player1, player2);
-			if (winner ! = null);
+			if(winner != null)
 			{
 				//勝者を表示する
-				System.out.println("¥n" + winner.getName() + "が勝ちました!¥n");
+				System.out.println(winner.getName() + "が勝ちました!");
 				
 				//勝ったプレイヤーへ結果を伝える
-				winner.notifyResult(true)
+				winner.notifyResult(true);
 			}
 			else
 			{
 				//引き分けの時
-				System.out.println("¥n引き分けです!¥n");
+				System.out.println("引き分けです!");
 			}
 		}
 		
 		//ジャンケンの終了を宣言する
-		System.out.println("【ジャンケン終了】¥n");
+		System.out.println("【ジャンケン終了】");
 				
 		//最終的な勝者を判定する
-		Player finalWinner = jadgeFinalWinner(player1, player2);
+		Player finalWinner = judgeFinalWinner(player1, player2);
 		
 		//結果の表示
 		System.out.println(
-			Player1.getWinCount() + "対" + Player2.getWinCount() + "で");
+			player1.getWinCount() + "対" + player2.getWinCount() + "で");
 			
 		if(finalWinner != null)
 		{
-			System.out.println(finalWinner.getName() + "の勝ちです！¥n");
+			System.out.println(finalWinner.getName() + "の勝ちです！");
 		}
 		else
 		{
-			System.out.println("引き分けです！¥n");
+			System.out.println("引き分けです！");
 		}
 	}
 	
@@ -66,19 +66,24 @@ public class Judge
 	*@param player1 判定対象プレイヤー2
 	*@return 勝ったプレイヤー	引き分けの場合はnullを返す。
 	*/
-	private Player judgeJnaken(Player player1, Player player2)
+	private Player judgeJanken(Player player1, Player player2)
 	{
+		Player winner = null;
 		//プレイヤー1の手を出す
-		int palyer1hand = player1.showHand();
+		int player1hand = player1.showHand();
 
 		//プレイヤー2の手を出す
-		int palyer2hand = player2.showHand();
+		int player2hand = player2.showHand();
 		
 		//それぞれの手を表示する
+		System.out.print(player1.getName());
+		System.out.print("    ");
+		System.out.print(player2.getName());
+		System.out.println("");
 		printHand(player1hand);
 		System.out.print(" vs. ");
 		printHand(player2hand);
-		System.out.print("¥n");
+		System.out.println("");
 		
 		//プレイヤー1が勝つ場合
 		if ((player1hand == Player.STONE && player2hand == Player.SCISSORS)
@@ -107,7 +112,7 @@ public class Judge
 	*/
 	private Player judgeFinalWinner(Player player1, Player player2)
 	{
-		player winner = null;
+		Player winner = null;
 		//Player1から勝ち数を聞く
 		int player1WinCount = player1.getWinCount();
 		//Player2から勝ち数を聞く
@@ -134,13 +139,13 @@ public class Judge
 		switch (hand)
 		{
 			case Player.STONE:
-				System.out.println("グー");
+				System.out.print("グー");
 				break;
-			case Player.SCESSORSE:
-				System.out.println("チョキ");
+			case Player.SCISSORS:
+				System.out.print("チョキ");
 				break;
 			case Player.PAPER:
-				System.out.println("パー");
+				System.out.print("パー");
 				break;
 			default:
 				break;
